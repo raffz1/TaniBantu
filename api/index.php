@@ -1,10 +1,9 @@
 <?php
 
-// Arahkan folder penyimpanan internal Laravel ke folder sementara Vercel (/tmp)
+// Arahkan storage Laravel ke folder temporary Vercel yang writable (/tmp)
 $_ENV['APP_STORAGE'] = '/tmp/storage';
 $_SERVER['APP_STORAGE'] = '/tmp/storage';
 
-// Buat struktur folder storage di /tmp secara otomatis jika belum ada
 $storageFolders = [
     '/tmp/storage/app/public',
     '/tmp/storage/framework/views',
@@ -19,5 +18,4 @@ foreach ($storageFolders as $folder) {
     }
 }
 
-// Panggil file entry point Laravel asli
 require __DIR__ . '/../public/index.php';
